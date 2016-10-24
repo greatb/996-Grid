@@ -1,23 +1,34 @@
+
 <!DOCTYPE html>
 <html>
 <body>
 
-<div onclick="showMenu()">Click me</div>
-
-<div onclick="hideMenu()">Hide Menu</div>
+<div id="mobim">
+<div onclick="showMenu('mainm')">Click mainm</div>
+<div onclick="showMenu('sidem')">Click sidem</div>
+</div>
 
 <p id="demo"></p>
 
-
-<div id="menu">
-<ul>
-<li>skdjfhlaskfjh</li>
-<li>skdjfhlaskfjh</li>
-<li>skdjfhlaskfjh</li>
-<li>skdjfhlaskfjh</li>
-</ul>
+<div id="mainm">
+<div onclick="hideMenu()">Hide mainm</div>
+  <ul>
+    <li>main</li>
+  </ul>
 </div>
 
+<div id="sidem">
+<div onclick="hideMenu()">Hide sidem</div>
+  <ul>
+    <li>sidem</li>
+  </ul>
+</div>
+
+<p> Test test test </p>
+
+
+
+https://codepen.io/philhoyt/pen/ujHzd
 
 <script>
 
@@ -37,8 +48,6 @@ function ready(fn) {
     });
   }
 }
-
-
 
 
 function fadeIn(el) {
@@ -64,16 +73,24 @@ function fadeIn(el) {
 }
 
 
+function showMenu(id) {
+  document.getElementById('mobim')
+    .setAttribute('style', 'display: none;');
 
-function showMenu() {
-    var el = document.getElementById('menu');
-	el.setAttribute('style', 'display: block;')
+  var el = document.getElementById(id);
+    el.setAttribute('style', 'display: block;')
     fadeIn(el);
 }
 
 function hideMenu() {
-	document.getElementById('menu')
-		.setAttribute('style', 'display: none;');
+  document.getElementById('mainm')
+    .setAttribute('style', 'display: none;');
+  document.getElementById('sidem')
+    .setAttribute('style', 'display: none;');
+
+  var el = document.getElementById('mobim');
+    el.setAttribute('style', 'display: block;')
+    fadeIn(el);    
 }
 </script>
 

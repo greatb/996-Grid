@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div onclick="showMenu()">Click me</div>
+
+<div onclick="hideMenu()">Hide Menu</div>
+
+<p id="demo"></p>
+
+
+<div id="menu">
+<ul>
+<li>skdjfhlaskfjh</li>
+<li>skdjfhlaskfjh</li>
+<li>skdjfhlaskfjh</li>
+<li>skdjfhlaskfjh</li>
+</ul>
+</div>
+
+
+<script>
+
+ready(function() {
+	hideMenu();
+});
+
+function ready(fn) {
+  if (document.readyState != 'loading'){
+    fn();
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', fn);
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState != 'loading')
+        fn();
+    });
+  }
+}
+
+
+
+
+function fadeIn(el) {
+  var opacity = 0;
+
+  el.style.opacity = 0;
+  el.style.filter = '';
+
+  var last = +new Date();
+  var tick = function() {
+    opacity += (new Date() - last) / 400;
+    el.style.opacity = opacity;
+    el.style.filter = 'alpha(opacity=' + (100 * opacity)|0 + ')';
+
+    last = +new Date();
+
+    if (opacity < 1) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    }
+  };
+
+  tick();
+}
+
+
+
+function showMenu() {
+    var el = document.getElementById('menu');
+	el.setAttribute('style', 'display: block;')
+    fadeIn(el);
+}
+
+function hideMenu() {
+	document.getElementById('menu')
+		.setAttribute('style', 'display: none;');
+}
+</script>
+
+</body>
+</html>

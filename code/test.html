@@ -3,12 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name=viewport content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/grid.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/demo.css">
+
 </head>
 <body>
 
 <nav id="mobim" class="nav">
 <ul>
+	<li id="homem">[ ]</li>
 	<li id="hidem" onclick="hideMenu()">[X]</li>
 	<li onclick="showMenu('mainm')">mainm</li>
 	<li onclick="showMenu('sidem')">sidem</li>
@@ -343,8 +349,13 @@ function fadeOut(el) {
 }
 
 
+
+// main -------
 function showMenu(id) {
 	hideMenu();
+
+	var homeM = document.getElementById('homem');
+	homeM.setAttribute('style', 'display: none;');
 
   document.getElementById('hidem')
     .setAttribute('style', 'display: inline;');
@@ -358,13 +369,16 @@ function showMenu(id) {
 }
 
 function hideMenu() {
+	var homeM = document.getElementById('homem');
 	document.getElementById('mainm').setAttribute('style', 'display: none;');
 	document.getElementById('sidem').setAttribute('style', 'display: none;');
 	document.getElementById('hidem').setAttribute('style', 'display: none;');
+	homeM.setAttribute('style', 'display: inline;');
 
 	fadeOut(document.getElementById('mainm'));
 	fadeOut(document.getElementById('sidem'));
 	fadeOut(document.getElementById('hidem'));
+	fadeIn(homeM);
 }
 
 

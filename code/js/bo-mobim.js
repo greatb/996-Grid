@@ -16,6 +16,24 @@ function ready(fn) {
 }
 
 
+// media query event handler
+if (matchMedia) {
+  var mq = window.matchMedia("(min-width: 480px)");
+  mq.addListener(WidthChange);
+  WidthChange(mq);
+}
+
+// media query change
+function WidthChange(mq) {
+  if (mq.matches) {
+    hideMenu();
+  } else {
+    // window width is less than 480px
+    showMenu();
+  }
+
+}
+
 function fadeIn(el) {
   var opacity = 0;
 
@@ -60,8 +78,7 @@ function fadeOut(el) {
     }
     else
     {
-    	console.pront
-
+    	console.print();
     }
   };
 

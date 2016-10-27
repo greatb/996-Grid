@@ -1,18 +1,47 @@
 
+@media screen and (min-width: 480px) {
+    .mobi {
+        display: none;
+    }
+
+    #mainm, #sidem {
+    	display: block !important;
+    	opacity: 1 !important;
+    }
+
+    #content {
+		margin-top: 0px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+    .mobi {
+        display: block;
+    }
+
+    #mainm, #sidem {
+    	display: none ;
+    	opacity: 1 ;
+    }
+
+    #content {
+		margin-top: 100px;
+	}
+}
+
+
 .base {
 
 }
 
-#content {
-	margin-top: 100px;
-}
+
 
 #mobim {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
-	  z-index: 1024;
+	z-index: 1024;
     top: 0;
     width: 100%;
     background-color: #f5f5f5;
